@@ -11,6 +11,38 @@
       --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
       --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
       --font-serif: "New York", "New York Small", "NY", ui-serif, Georgia, "Times New Roman", serif;
+      --bg: #f5f5f7;
+      --bg-glow: #ffffff;
+      --card: #ffffff;
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #e8e8ed;
+      --accent: #d9a6a0;
+      --accent-soft: #f5f5f7;
+      --chip: #f5f5f7;
+      --chip-ink: #1d1d1f;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+      --watermark: rgba(0, 0, 0, 0.04);
+      --glow-2: #ffffff;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #000000;
+      --bg-glow: #111111;
+      --glow-2: #0a0a0a;
+      --card: #111111;
+      --ink: #f5f5f7;
+      --muted: #86868b;
+      --line: #2c2c2e;
+      --accent: #e2b4ae;
+      --accent-soft: #1c1c1e;
+      --chip: #1c1c1e;
+      --chip-ink: #f5f5f7;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+      --watermark: rgba(255, 255, 255, 0.04);
+    }
+
+    html[data-theme="cozy-light"] {
       --bg: #f6efe6;
       --bg-glow: #f3d9c8;
       --card: #fffaf4;
@@ -26,7 +58,7 @@
       --glow-2: #e8d5ea88;
     }
 
-    html[data-theme="dark"] {
+    html[data-theme="cozy-dark"] {
       --bg: #241f1d;
       --bg-glow: #3a2e2b;
       --glow-2: #3a3038;
@@ -69,27 +101,43 @@
       position: relative;
     }
 
-    .theme {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      z-index: 2;
-      border: 1px solid var(--line);
-      background: var(--accent-soft);
-      color: var(--ink);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font: 600 12px/1 var(--font-sans);
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-bottom: 18px;
+      padding: 3px;
+      border-radius: 12px;
+      background: var(--line);
+    }
+
+    .segmented button {
+      border: 0;
+      margin: 0;
+      padding: 8px 6px;
+      border-radius: 9px;
+      background: transparent;
+      color: var(--muted);
+      font: 600 11px/1.2 var(--font-sans);
       letter-spacing: -0.01em;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 4px;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .theme:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
+    .segmented button[aria-pressed="true"] {
+      background: var(--card);
+      color: var(--ink);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+
+    .segment-icon--sun {
+      font-size: 1.2em;
+      font-weight: 700;
+      line-height: 1;
     }
 
     .card {
@@ -103,7 +151,7 @@
     }
 
     .card::before {
-      content: "ALEKSANDR";
+      content: "AMIDALEET";
       position: absolute;
       bottom: 40px;
       right: -20px;
@@ -121,7 +169,6 @@
       display: flex;
       gap: 18px;
       align-items: center;
-      padding-right: 88px;
     }
 
     .avatar {
@@ -150,8 +197,17 @@
       letter-spacing: -0.01em;
     }
 
+    .meta {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+    }
+
     .quote {
-      margin: 22px 0 0;
+      margin: 18px 0 0;
       font-family: var(--font-serif);
       font-style: normal;
       font-weight: 400;
@@ -256,26 +312,28 @@
 
     @media (max-width: 560px) {
       .card { padding: 28px 18px 22px; }
-      header { padding-right: 0; padding-top: 36px; }
-      .theme { top: 12px; right: 12px; }
+      .segmented button { font-size: 10px; padding: 8px 4px; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <button class="theme" type="button" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
-      <span aria-hidden="true">☾</span>
-      <span data-theme-label>Dark</span>
-    </button>
+    <div class="segmented" role="group" aria-label="Theme">
+      <button type="button" data-theme-index="0" aria-pressed="true"><span class="segment-icon segment-icon--sun" aria-hidden="true">☀</span> Light</button>
+      <button type="button" data-theme-index="1" aria-pressed="false"><span class="segment-icon" aria-hidden="true">☾</span> Dark</button>
+      <button type="button" data-theme-index="2" aria-pressed="false"><span class="segment-icon segment-icon--sun" aria-hidden="true">☀</span> Cozy light</button>
+      <button type="button" data-theme-index="3" aria-pressed="false"><span class="segment-icon" aria-hidden="true">☾</span> Cozy dark</button>
+    </div>
 
     <main class="card">
       <header>
         <img class="avatar" src="https://avatars.githubusercontent.com/u/26896533?v=4" alt="Aleksandr Bodrov">
         <div>
           <h1>Aleksandr Bodrov</h1>
-          <p class="handle">Amidaleet</p>
         </div>
       </header>
+
+      <p class="meta" id="meta-content" hidden></p>
 
       <p class="quote">
       Look at that subtle off-white coloring. The tasteful thickness of it.<br>
@@ -284,6 +342,18 @@
 
       <h2>Around the web</h2>
       <nav class="links" aria-label="Social links">
+        <a href="https://github.com/amidaleet" rel="me noopener">
+          <span class="emoji" aria-hidden="true">💾</span>
+          <span><span class="label">Github</span> <span class="hint">with code</span></span>
+        </a>
+        <a href="https://www.linkedin.com/in/aleksandr-bodrov/" rel="me noopener">
+          <span class="emoji" aria-hidden="true">📊</span>
+          <span><span class="label">Linked In</span> <span class="hint">with resume</span></span>
+        </a>
+        <a href="https://t.me/Amidaleet" rel="me noopener">
+          <span class="emoji" aria-hidden="true">💌</span>
+          <span><span class="label">Telegram</span> <span class="hint">to contact</span></span>
+        </a>
         <a href="https://instagram.com/amidaleet" rel="me noopener">
           <span class="emoji" aria-hidden="true">📸</span>
           <span><span class="label">Insta</span> <span class="hint">with photos</span></span>
@@ -303,18 +373,6 @@
         <a href="https://t.me/+WfcYKK_6jPM3YzEy" rel="noopener">
           <span class="emoji" aria-hidden="true">🗺️</span>
           <span><span class="label">Memeries</span> <span class="hint">with friends</span></span>
-        </a>
-        <a href="https://github.com/amidaleet" rel="me noopener">
-          <span class="emoji" aria-hidden="true">💾</span>
-          <span><span class="label">Github</span> <span class="hint">with code</span></span>
-        </a>
-        <a href="https://www.linkedin.com/in/aleksandr-bodrov/" rel="me noopener">
-          <span class="emoji" aria-hidden="true">📊</span>
-          <span><span class="label">Linked In</span> <span class="hint">with resume</span></span>
-        </a>
-        <a href="https://t.me/Amidaleet" rel="me noopener">
-          <span class="emoji" aria-hidden="true">💌</span>
-          <span><span class="label">Telegram</span> <span class="hint">to contact</span></span>
         </a>
       </nav>
 
@@ -359,26 +417,47 @@
   </div>
 
   <script>
-    const root = document.documentElement;
-    const button = document.getElementById("theme-toggle");
-    const label = button.querySelector("[data-theme-label]");
-    const stored = localStorage.getItem("theme");
+    const metaContent = "Software Developer, Artist";
 
-    function apply(theme) {
-      const dark = theme === "dark";
-      root.dataset.theme = theme;
-      button.setAttribute("aria-pressed", String(dark));
-      button.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
-      label.textContent = dark ? "Light" : "Dark";
-      button.querySelector("span[aria-hidden]").textContent = dark ? "☼" : "☾";
+    const metaDisplay = document.getElementById("meta-content");
+    if (metaContent.trim()) {
+      metaDisplay.textContent = metaContent;
+      metaDisplay.hidden = false;
     }
 
-    apply(stored === "dark" ? "dark" : "light");
+    const root = document.documentElement;
+    const segments = document.querySelectorAll("[data-theme-index]");
+    const themes = ["light", "dark", "cozy-light", "cozy-dark"];
+    const stored = localStorage.getItem("theme");
 
-    button.addEventListener("click", () => {
-      const next = root.dataset.theme === "dark" ? "light" : "dark";
-      localStorage.setItem("theme", next);
-      apply(next);
+    function indexForTheme(theme) {
+      const index = themes.indexOf(theme);
+      return index === -1 ? 1 : index;
+    }
+
+    function apply(index) {
+      const theme = themes[index];
+
+      if (theme === "light") {
+        delete root.dataset.theme;
+      } else {
+        root.dataset.theme = theme;
+      }
+
+      segments.forEach((button) => {
+        const active = button.dataset.themeIndex === String(index);
+        button.setAttribute("aria-pressed", String(active));
+      });
+
+      localStorage.setItem("theme", theme);
+    }
+
+    apply(indexForTheme(stored || "light"));
+
+    segments.forEach((button) => {
+      button.addEventListener("click", () => {
+        apply(Number(button.dataset.themeIndex));
+      });
     });
   </script>
 </body>
