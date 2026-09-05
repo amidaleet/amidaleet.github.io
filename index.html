@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cozy-light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aleksandr Bodrov</title>
+  <meta name="description" content="Aleksandr Bodrov – Team/Tech lead, DevEx, DevOps, iOS/MacOS developer. Amidaleet.">
+  <meta name="author" content="Aleksandr Bodrov">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://amidaleet.github.io/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Amidaleet">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://amidaleet.github.io/">
+  <meta property="og:title" content="Aleksandr Bodrov">
+  <meta property="og:description" content="Aleksandr Bodrov – Team/Tech lead, DevEx, DevOps, iOS/MacOS developer. Amidaleet.">
+  <meta property="og:image" content="https://amidaleet.github.io/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aleksandr Bodrov – Team/Tech lead, DevEx, DevOps, iOS/MacOS developer">
+  <meta property="profile:username" content="amidaleet">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Amidaleet">
+  <meta name="twitter:creator" content="@Amidaleet">
+  <meta name="twitter:title" content="Aleksandr Bodrov">
+  <meta name="twitter:description" content="Aleksandr Bodrov – Team/Tech lead, DevEx, DevOps, iOS/MacOS developer. Amidaleet.">
+  <meta name="twitter:image" content="https://amidaleet.github.io/og.png">
+  <meta name="twitter:image:alt" content="Aleksandr Bodrov – Team/Tech lead, DevEx, DevOps, iOS/MacOS developer">
+
+  <meta name="google-site-verification" content="4OIXLPPZxrxwagosDQK2OvCb-Db8zqhPEwaJiJRObEY" />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/26896533?v=4">
+  <style>
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-serif: "New York", "New York Small", "NY", ui-serif, Georgia, "Times New Roman", serif;
+      --bg: #f5f5f7;
+      --bg-glow: #ffffff;
+      --card: #ffffff;
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #e8e8ed;
+      --accent: #d9a6a0;
+      --accent-soft: #f5f5f7;
+      --chip: #f5f5f7;
+      --chip-ink: #1d1d1f;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+      --watermark: rgba(0, 0, 0, 0.04);
+      --glow-2: #ffffff;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #000000;
+      --bg-glow: #111111;
+      --glow-2: #0a0a0a;
+      --card: #111111;
+      --ink: #f5f5f7;
+      --muted: #86868b;
+      --line: #2c2c2e;
+      --accent: #e2b4ae;
+      --accent-soft: #1c1c1e;
+      --chip: #1c1c1e;
+      --chip-ink: #f5f5f7;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+      --watermark: rgba(255, 255, 255, 0.04);
+    }
+
+    html[data-theme="cozy-light"] {
+      --bg: #f6efe6;
+      --bg-glow: #f3d9c8;
+      --card: #fffaf4;
+      --ink: #4a3f3a;
+      --muted: #7d6f68;
+      --line: #eadfd4;
+      --accent: #d9a6a0;
+      --accent-soft: #f3e2dc;
+      --chip: #e8f0e6;
+      --chip-ink: #4f6a52;
+      --shadow: 0 18px 50px rgba(120, 90, 70, 0.12);
+      --watermark: rgba(74, 63, 58, 0.06);
+      --glow-2: #e8d5ea88;
+    }
+
+    html[data-theme="cozy-dark"] {
+      --bg: #241f1d;
+      --bg-glow: #3a2e2b;
+      --glow-2: #3a3038;
+      --card: #372f2c;
+      --ink: #f3e8df;
+      --muted: #c4b4aa;
+      --line: #4d433e;
+      --accent: #e2b4ae;
+      --accent-soft: #4a3b38;
+      --chip: #3d4a3f;
+      --chip-ink: #d5e6d4;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+      --watermark: rgba(243, 232, 223, 0.05);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      font-size: 17px;
+      line-height: 1.47059;
+      letter-spacing: -0.022em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 420px at 12% -10%, var(--bg-glow), transparent 60%),
+        radial-gradient(700px 360px at 110% 20%, var(--glow-2), transparent 55%),
+        var(--bg);
+      display: grid;
+      place-items: center;
+      padding: 32px 16px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .wrap {
+      width: min(720px, 100%);
+      position: relative;
+    }
+
+    .controls {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      padding: 3px;
+      border-radius: 12px;
+      background: var(--line);
+    }
+
+    .segmented--2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .segmented button {
+      border: 0;
+      margin: 0;
+      padding: 8px 6px;
+      border-radius: 9px;
+      background: transparent;
+      color: var(--muted);
+      font: 600 11px/1.2 var(--font-sans);
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .segmented button[aria-pressed="true"] {
+      background: var(--card);
+      color: var(--ink);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+
+    .segment-icon--sun {
+      font-size: 1.2em;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 36px 32px 28px;
+    }
+
+    .card::before {
+      content: "AMIDALEET";
+      position: absolute;
+      bottom: 40px;
+      right: -20px;
+      font-family: var(--font-display);
+      font-size: 80px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--watermark);
+      transform: rotate(-18deg);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    header {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      object-fit: cover;
+      border: 3px solid var(--accent-soft);
+      flex-shrink: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.125rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .handle {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    .meta {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+    }
+
+    .quote {
+      margin: 18px 0 0;
+      font-family: var(--font-serif);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 19px;
+      letter-spacing: 0.012em;
+      color: var(--muted);
+      line-height: 1.4211;
+    }
+
+    h2 {
+      margin: 28px 0 12px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .links {
+      display: grid;
+      gap: 8px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .links a {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+    }
+
+    .links a:hover,
+    .links a:focus-visible {
+      background: var(--accent-soft);
+      border-color: var(--line);
+    }
+
+    .emoji { width: 1.6em; text-align: center; flex-shrink: 0; }
+    .label { font-weight: 600; }
+    .hint { color: var(--muted); font-weight: 400; }
+
+    .jobs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .jobs span {
+      background: var(--chip);
+      color: var(--chip-ink);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .works {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .works a {
+      display: block;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .works a:hover,
+    .works a:focus-visible {
+      background: var(--accent-soft);
+    }
+
+    .works strong {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .works small {
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    @media (max-width: 560px) {
+      .card { padding: 28px 18px 22px; }
+      .segmented button { font-size: 10px; padding: 8px 4px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="controls">
+      <div class="segmented segmented--2" role="group" aria-label="Language" data-i18n-aria="langAria">
+        <button type="button" data-lang="ru" aria-pressed="false">🇷🇺 Русский</button>
+        <button type="button" data-lang="en" aria-pressed="true">🇺🇸 English</button>
+      </div>
+      <div class="segmented" role="group" aria-label="Theme" data-i18n-aria="themeAria">
+        <button type="button" data-theme-index="0" aria-pressed="false"><span class="segment-icon segment-icon--sun" aria-hidden="true">☀</span> <span data-i18n="light">Light</span></button>
+        <button type="button" data-theme-index="1" aria-pressed="false"><span class="segment-icon" aria-hidden="true">☾</span> <span data-i18n="dark">Dark</span></button>
+        <button type="button" data-theme-index="2" aria-pressed="true"><span class="segment-icon segment-icon--sun" aria-hidden="true">☀</span> <span data-i18n="cozyLight">Cozy light</span></button>
+        <button type="button" data-theme-index="3" aria-pressed="false"><span class="segment-icon" aria-hidden="true">☾</span> <span data-i18n="cozyDark">Cozy dark</span></button>
+      </div>
+    </div>
+
+    <main class="card">
+      <header>
+        <img class="avatar" src="https://avatars.githubusercontent.com/u/26896533?v=4" alt="Aleksandr Bodrov" data-i18n-alt="name">
+        <div>
+          <h1 data-i18n="name">Aleksandr Bodrov</h1>
+        </div>
+      </header>
+
+      <p class="meta" id="meta-content" hidden></p>
+
+      <p class="quote" data-i18n-html="quote">
+      Look at that subtle off-white coloring. The tasteful thickness of it.<br>
+      Oh my God, it even has a watermark...
+      </p>
+
+      <h2 data-i18n="aroundTheWeb">Around the web</h2>
+      <nav class="links" aria-label="Social links" data-i18n-aria="socialAria">
+        <a href="https://instagram.com/amidaleet" rel="me noopener">
+          <span class="emoji" aria-hidden="true">📸</span>
+          <span><span class="label">Insta</span> <span class="hint" data-i18n="withPhotos">with photos</span></span>
+        </a>
+        <a href="https://instagram.com/generalmlp" rel="me noopener">
+          <span class="emoji" aria-hidden="true">🎨</span>
+          <span><span class="label">Insta</span> <span class="hint" data-i18n="withArt">with art</span></span>
+        </a>
+        <a href="https://x.com/Amidaleet" rel="me noopener">
+          <span class="emoji" aria-hidden="true">💬</span>
+          <span><span class="label">X.com</span> <span class="hint" data-i18n="withPosts">with posts</span></span>
+        </a>
+        <a href="https://t.me/GeneralMLP" rel="noopener">
+          <span class="emoji" aria-hidden="true">🕳️</span>
+          <span><span class="label" data-i18n="channel">Channel</span> <span class="hint" data-i18n="withNotes">with notes</span></span>
+        </a>
+        <a href="https://t.me/+WfcYKK_6jPM3YzEy" rel="noopener">
+          <span class="emoji" aria-hidden="true">🗺️</span>
+          <span><span class="label">Memeries</span> <span class="hint" data-i18n="forFriends">for friends</span></span>
+        </a>
+        <a href="https://github.com/amidaleet" rel="me noopener">
+          <span class="emoji" aria-hidden="true">💾</span>
+          <span><span class="label">Github</span> <span class="hint" data-i18n="withCode">with code</span></span>
+        </a>
+      </nav>
+
+      <h2 data-i18n="workRoles">Work Roles</h2>
+      <div class="jobs">
+        <span data-i18n="teamLead">Team lead</span>
+        <span data-i18n="techLead">Tech lead</span>
+        <span>DevEx</span>
+        <span>DevOps</span>
+        <span data-i18n="iosDev">iOS developer</span>
+        <span data-i18n="macosDev">MacOS developer</span>
+      </div>
+
+      <h2 data-i18n="softwareAuthor">Software Author</h2>
+      <ul class="works">
+        <li>
+          <a href="https://amidaleet.github.io/Xfile/" rel="noopener">
+            <strong>🚀 Xfile</strong>
+            <small data-i18n="xfileDesc">bash scripts template</small>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/salute-developers/snapshots-kit-ios" rel="noopener">
+            <strong>📸 SDSnapshots</strong>
+            <small data-i18n="snapshotsDesc">swift library for iOS products Snapshot Testing</small>
+          </a>
+        </li>
+      </ul>
+
+      <h2 data-i18n="softwareContributor">Software Contributor</h2>
+      <ul class="works">
+        <li>
+          <a href="https://github.com/fastlane/fastlane" rel="noopener">
+            <strong>💎 Fastlane</strong>
+            <small data-i18n="fastlaneDesc">iOS and Android build automation</small>
+          </a>
+        </li>
+      </ul>
+    </main>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        langAria: "Language",
+        themeAria: "Theme",
+        light: "Light",
+        dark: "Dark",
+        cozyLight: "Cozy light",
+        cozyDark: "Cozy dark",
+        name: "Aleksandr Bodrov",
+        meta: "Software Developer, Artist",
+        quote: "Look at that subtle off-white coloring. The tasteful thickness of it.<br>\n      Oh my God, it even has a watermark...",
+        aroundTheWeb: "Around the web",
+        socialAria: "Social links",
+        withPhotos: "with photos",
+        withArt: "with art",
+        withPosts: "with posts",
+        channel: "Channel",
+        withNotes: "with notes",
+        forFriends: "for friends",
+        withCode: "with code",
+        workRoles: "Work Roles",
+        teamLead: "Team lead",
+        techLead: "Tech lead",
+        iosDev: "iOS developer",
+        macosDev: "MacOS developer",
+        softwareAuthor: "Software Author",
+        xfileDesc: "bash scripts template",
+        snapshotsDesc: "swift library for iOS products Snapshot Testing",
+        softwareContributor: "Software Contributor",
+        fastlaneDesc: "iOS and Android build automation"
+      },
+      ru: {
+        langAria: "Язык",
+        themeAria: "Тема",
+        light: "Светлая",
+        dark: "Тёмная",
+        cozyLight: "Уютная светлая",
+        cozyDark: "Уютная тёмная",
+        name: "Александр Бодров",
+        meta: "Разработчик ПО, художник",
+        quote: "Посмотри на этот нежный цвет слоновой кости. Какая изысканная плотность.<br>\n      Боже мой, тут даже водяной знак...",
+        aroundTheWeb: "В сети",
+        socialAria: "Ссылки в сети",
+        withPhotos: "с фото",
+        withArt: "с артами",
+        withPosts: "с постами",
+        channel: "Канал",
+        withNotes: "с заметками",
+        forFriends: "для друзей",
+        withCode: "с кодом",
+        workRoles: "Роли",
+        teamLead: "Тимлид",
+        techLead: "Техлид",
+        iosDev: "iOS-разработчик",
+        macosDev: "MacOS-разработчик",
+        softwareAuthor: "Автор ПО",
+        xfileDesc: "шаблон bash-скриптов",
+        snapshotsDesc: "swift-библиотека для Snapshot Testing iOS-продуктов",
+        softwareContributor: "Контрибьютор",
+        fastlaneDesc: "автоматизация сборки iOS и Android"
+      }
+    };
+
+    const root = document.documentElement;
+    const metaDisplay = document.getElementById("meta-content");
+    const langSegments = document.querySelectorAll("[data-lang]");
+    const segments = document.querySelectorAll("[data-theme-index]");
+    const themes = ["light", "dark", "cozy-light", "cozy-dark"];
+    const stored = localStorage.getItem("theme");
+
+    function applyLang(lang) {
+      const t = translations[lang] || translations.en;
+      root.lang = lang in translations ? lang : "en";
+      document.title = t.name;
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        el.textContent = t[el.dataset.i18n];
+      });
+      document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+        el.innerHTML = t[el.dataset.i18nHtml];
+      });
+      document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+        el.setAttribute("aria-label", t[el.dataset.i18nAria]);
+      });
+      document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+        el.setAttribute("alt", t[el.dataset.i18nAlt]);
+      });
+
+      if (t.meta.trim()) {
+        metaDisplay.textContent = t.meta;
+        metaDisplay.hidden = false;
+      } else {
+        metaDisplay.hidden = true;
+      }
+
+      langSegments.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
+      });
+
+      localStorage.setItem("lang", root.lang);
+    }
+
+    function indexForTheme(theme) {
+      const index = themes.indexOf(theme);
+      return index === -1 ? 2 : index;
+    }
+
+    function apply(index) {
+      const theme = themes[index];
+
+      if (theme === "light") {
+        delete root.dataset.theme;
+      } else {
+        root.dataset.theme = theme;
+      }
+
+      segments.forEach((button) => {
+        const active = button.dataset.themeIndex === String(index);
+        button.setAttribute("aria-pressed", String(active));
+      });
+
+      localStorage.setItem("theme", theme);
+    }
+
+    const storedLang = localStorage.getItem("lang");
+    const browserLang = (navigator.language || "").toLowerCase().startsWith("ru") ? "ru" : "en";
+    applyLang(storedLang === "ru" || storedLang === "en" ? storedLang : browserLang);
+
+    langSegments.forEach((button) => {
+      button.addEventListener("click", () => {
+        applyLang(button.dataset.lang);
+      });
+    });
+
+    apply(indexForTheme(stored || "cozy-light"));
+
+    segments.forEach((button) => {
+      button.addEventListener("click", () => {
+        apply(Number(button.dataset.themeIndex));
+      });
+    });
+  </script>
+</body>
+</html>
