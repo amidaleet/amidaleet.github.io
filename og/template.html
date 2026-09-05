@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --bg: #f6efe6;
+    --bg-glow: #f3d9c8;
+    --glow-2: #e8d5ea88;
+    --card: #fffaf4;
+    --ink: #4a3f3a;
+    --muted: #7d6f68;
+    --line: #eadfd4;
+    --accent-soft: #f3e2dc;
+    --chip: #e8f0e6;
+    --chip-ink: #4f6a52;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    color: var(--ink);
+    background:
+      radial-gradient(900px 420px at 12% -10%, var(--bg-glow), transparent 60%),
+      radial-gradient(700px 360px at 110% 20%, var(--glow-2), transparent 55%),
+      var(--bg);
+    display: grid;
+    place-items: center;
+  }
+  .card {
+    width: 1040px;
+    height: 470px;
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 44px;
+    box-shadow: 0 30px 80px rgba(120, 90, 70, 0.16);
+    padding: 64px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  header { display: flex; gap: 36px; align-items: center; }
+  .avatar {
+    width: 150px; height: 150px;
+    border-radius: 44px;
+    object-fit: cover;
+    border: 6px solid var(--accent-soft);
+    flex-shrink: 0;
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 96px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .meta {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 32px;
+    letter-spacing: -0.01em;
+  }
+  .jobs { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
+  .jobs span {
+    background: var(--chip);
+    color: var(--chip-ink);
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <header>
+      <img class="avatar" src="avatar.jpg" alt="">
+      <div>
+        <h1>Amidaleet</h1>
+        <p class="meta">Software Developer, Artist</p>
+      </div>
+    </header>
+    <div class="jobs">
+      <span>Team lead</span>
+      <span>Tech lead</span>
+      <span>DevEx</span>
+      <span>DevOps</span>
+      <span>iOS</span>
+      <span>MacOS</span>
+    </div>
+  </main>
+</body>
+</html>

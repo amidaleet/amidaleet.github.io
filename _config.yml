@@ -1,0 +1,4 @@
+exclude:
+  - Xfile
+  - scripts/
+  - og/

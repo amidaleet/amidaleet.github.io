@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+function all {
+    node scripts/sync-i18n.js check --all
+}
+
+function ru {
+    node scripts/sync-i18n.js check --ru
+}
+
+function to_html { ## translations.en → HTML
+    node scripts/sync-i18n.js apply --to html
+}
+
+function og { ## og/template.html → og.png
+    swift scripts/render-og.swift og/template.html og.png
+}
+
+"$@"
