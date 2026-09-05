@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aleksandr Bodrov</title>
+  <meta name="description" content="Aleksandr Bodrov — DX Mobile lead, DevOps engineer, iOS developer. Amidaleet.">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/26896533?v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,640;1,9..144,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6efe6;
+      --bg-glow: #f3d9c8;
+      --card: #fffaf4;
+      --ink: #4a3f3a;
+      --muted: #7d6f68;
+      --line: #eadfd4;
+      --accent: #d9a6a0;
+      --accent-soft: #f3e2dc;
+      --chip: #e8f0e6;
+      --chip-ink: #4f6a52;
+      --shadow: 0 18px 50px rgba(120, 90, 70, 0.12);
+      --watermark: rgba(74, 63, 58, 0.06);
+      --glow-2: #e8d5ea88;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #241f1d;
+      --bg-glow: #3a2e2b;
+      --glow-2: #3a3038;
+      --card: #372f2c;
+      --ink: #f3e8df;
+      --muted: #c4b4aa;
+      --line: #4d433e;
+      --accent: #e2b4ae;
+      --accent-soft: #4a3b38;
+      --chip: #3d4a3f;
+      --chip-ink: #d5e6d4;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+      --watermark: rgba(243, 232, 223, 0.05);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Nunito, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 420px at 12% -10%, var(--bg-glow), transparent 60%),
+        radial-gradient(700px 360px at 110% 20%, var(--glow-2), transparent 55%),
+        var(--bg);
+      display: grid;
+      place-items: center;
+      padding: 32px 16px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .wrap {
+      width: min(720px, 100%);
+      position: relative;
+    }
+
+    .theme {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      border: 1px solid var(--line);
+      background: var(--accent-soft);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font: 700 13px/1 Nunito, sans-serif;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 36px 32px 28px;
+    }
+
+    .card::before {
+      content: "ALEKSANDR";
+      position: absolute;
+      bottom: 40px;
+      right: -20px;
+      font-family: Fraunces, Georgia, serif;
+      font-size: 80px;
+      letter-spacing: 0.18em;
+      color: var(--watermark);
+      transform: rotate(-18deg);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    header {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      padding-right: 88px;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      object-fit: cover;
+      border: 3px solid var(--accent-soft);
+      flex-shrink: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 640;
+      letter-spacing: 0.04em;
+    }
+
+    .handle {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .quote {
+      margin: 22px 0 0;
+      font-family: Fraunces, Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .links {
+      display: grid;
+      gap: 8px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .links a {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+    }
+
+    .links a:hover,
+    .links a:focus-visible {
+      background: var(--accent-soft);
+      border-color: var(--line);
+    }
+
+    .emoji { width: 1.6em; text-align: center; flex-shrink: 0; }
+    .label { font-weight: 700; }
+    .hint { color: var(--muted); font-weight: 400; }
+
+    .jobs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .jobs span {
+      background: var(--chip);
+      color: var(--chip-ink);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .works {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .works a {
+      display: block;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .works a:hover,
+    .works a:focus-visible {
+      background: var(--accent-soft);
+    }
+
+    .works strong { display: block; }
+    .works small { color: var(--muted); }
+
+    footer {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 560px) {
+      .card { padding: 28px 18px 22px; }
+      header { padding-right: 0; padding-top: 36px; }
+      .theme { top: 12px; right: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <button class="theme" type="button" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+      <span aria-hidden="true">☾</span>
+      <span data-theme-label>Dark</span>
+    </button>
+
+    <main class="card">
+      <header>
+        <img class="avatar" src="https://avatars.githubusercontent.com/u/26896533?v=4" alt="Aleksandr Bodrov">
+        <div>
+          <h1>Aleksandr Bodrov</h1>
+          <p class="handle">Amidaleet</p>
+        </div>
+      </header>
+
+      <p class="quote">
+      Look at that subtle off-white coloring. The tasteful thickness of it.<br>
+      Oh my God, it even has a watermark...
+      </p>
+
+      <h2>Around the web</h2>
+      <nav class="links" aria-label="Social links">
+        <a href="https://instagram.com/amidaleet" rel="me noopener">
+          <span class="emoji" aria-hidden="true">📸</span>
+          <span><span class="label">Insta</span> <span class="hint">with photos</span></span>
+        </a>
+        <a href="https://instagram.com/generalmlp" rel="me noopener">
+          <span class="emoji" aria-hidden="true">🎨</span>
+          <span><span class="label">Insta</span> <span class="hint">with art</span></span>
+        </a>
+        <a href="https://x.com/Amidaleet" rel="me noopener">
+          <span class="emoji" aria-hidden="true">💬</span>
+          <span><span class="label">X.com</span> <span class="hint">with noise</span></span>
+        </a>
+        <a href="https://t.me/GeneralMLP" rel="noopener">
+          <span class="emoji" aria-hidden="true">🕳️</span>
+          <span><span class="label">Channel</span> <span class="hint">with notes</span></span>
+        </a>
+        <a href="https://t.me/+WfcYKK_6jPM3YzEy" rel="noopener">
+          <span class="emoji" aria-hidden="true">🗺️</span>
+          <span><span class="label">Memeries</span> <span class="hint">with friends</span></span>
+        </a>
+        <a href="https://github.com/amidaleet" rel="me noopener">
+          <span class="emoji" aria-hidden="true">💾</span>
+          <span><span class="label">Github</span> <span class="hint">with code</span></span>
+        </a>
+        <a href="https://www.linkedin.com/in/aleksandr-bodrov/" rel="me noopener">
+          <span class="emoji" aria-hidden="true">📊</span>
+          <span><span class="label">Linked In</span> <span class="hint">with resume</span></span>
+        </a>
+        <a href="https://t.me/Amidaleet" rel="me noopener">
+          <span class="emoji" aria-hidden="true">💌</span>
+          <span><span class="label">Telegram</span> <span class="hint">to contact</span></span>
+        </a>
+      </nav>
+
+      <h2>Work Roles</h2>
+      <div class="jobs">
+        <span>DX lead</span>
+        <span>DevOps engineer</span>
+        <span>iOS developer</span>
+      </div>
+
+      <h2>Software Author</h2>
+      <ul class="works">
+        <li>
+          <a href="https://github.com/amidaleet/Xfile" rel="noopener">
+            <strong>🚀 Xfile</strong>
+            <small>bash scripts template</small>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/salute-developers/snapshots-kit-ios" rel="noopener">
+            <strong>📸 SDSnapshots</strong>
+            <small>swift library for iOS products Snapshot Testing</small>
+          </a>
+        </li>
+      </ul>
+
+      <h2>Software Contributor</h2>
+      <ul class="works">
+        <li>
+          <a href="https://github.com/fastlane/fastlane" rel="noopener">
+            <strong>💎 Fastlane</strong>
+            <small>iOS and Android build automation</small>
+          </a>
+        </li>
+      </ul>
+
+      <footer>Amidaleet</footer>
+    </main>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const button = document.getElementById("theme-toggle");
+    const label = button.querySelector("[data-theme-label]");
+    const stored = localStorage.getItem("theme");
+
+    function apply(theme) {
+      const dark = theme === "dark";
+      root.dataset.theme = theme;
+      button.setAttribute("aria-pressed", String(dark));
+      button.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+      label.textContent = dark ? "Light" : "Dark";
+      button.querySelector("span[aria-hidden]").textContent = dark ? "☼" : "☾";
+    }
+
+    apply(stored === "dark" ? "dark" : "light");
+
+    button.addEventListener("click", () => {
+      const next = root.dataset.theme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", next);
+      apply(next);
+    });
+  </script>
+</body>
+</html>
