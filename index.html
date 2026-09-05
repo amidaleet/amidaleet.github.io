@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aleksandr Bodrov</title>
-  <meta name="description" content="Aleksandr Bodrov — DX Mobile lead, DevOps engineer, iOS developer. Amidaleet.">
+  <meta name="description" content="Aleksandr Bodrov – Team/Tech lead, DevEx, DevOps, iOS/MacOS developer. Amidaleet.">
   <link rel="icon" href="https://avatars.githubusercontent.com/u/26896533?v=4">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,640;1,9..144,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-serif: "New York", "New York Small", "NY", ui-serif, Georgia, "Times New Roman", serif;
       --bg: #f6efe6;
       --bg-glow: #f3d9c8;
       --card: #fffaf4;
@@ -47,7 +47,12 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Nunito, system-ui, sans-serif;
+      font-family: var(--font-sans);
+      font-size: 17px;
+      line-height: 1.47059;
+      letter-spacing: -0.022em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       color: var(--ink);
       background:
         radial-gradient(900px 420px at 12% -10%, var(--bg-glow), transparent 60%),
@@ -74,7 +79,8 @@
       color: var(--ink);
       border-radius: 999px;
       padding: 8px 12px;
-      font: 700 13px/1 Nunito, sans-serif;
+      font: 600 12px/1 var(--font-sans);
+      letter-spacing: -0.01em;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -101,9 +107,10 @@
       position: absolute;
       bottom: 40px;
       right: -20px;
-      font-family: Fraunces, Georgia, serif;
+      font-family: var(--font-display);
       font-size: 80px;
-      letter-spacing: 0.18em;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       color: var(--watermark);
       transform: rotate(-18deg);
       pointer-events: none;
@@ -128,31 +135,38 @@
 
     h1 {
       margin: 0;
-      font-family: Fraunces, Georgia, serif;
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 640;
-      letter-spacing: 0.04em;
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.125rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
     }
 
     .handle {
-      margin: 4px 0 0;
+      margin: 6px 0 0;
       color: var(--muted);
-      font-weight: 700;
+      font-weight: 400;
+      font-size: 15px;
+      letter-spacing: -0.01em;
     }
 
     .quote {
       margin: 22px 0 0;
-      font-family: Fraunces, Georgia, serif;
-      font-style: italic;
+      font-family: var(--font-serif);
+      font-style: normal;
       font-weight: 400;
+      font-size: 19px;
+      letter-spacing: 0.012em;
       color: var(--muted);
-      line-height: 1.45;
+      line-height: 1.4211;
     }
 
     h2 {
       margin: 28px 0 12px;
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--muted);
     }
@@ -183,7 +197,7 @@
     }
 
     .emoji { width: 1.6em; text-align: center; flex-shrink: 0; }
-    .label { font-weight: 700; }
+    .label { font-weight: 600; }
     .hint { color: var(--muted); font-weight: 400; }
 
     .jobs {
@@ -197,8 +211,8 @@
       color: var(--chip-ink);
       border-radius: 999px;
       padding: 6px 12px;
-      font-size: 0.92rem;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 600;
     }
 
     .works {
@@ -221,13 +235,23 @@
       background: var(--accent-soft);
     }
 
-    .works strong { display: block; }
-    .works small { color: var(--muted); }
+    .works strong {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .works small {
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: -0.01em;
+    }
 
     footer {
       margin-top: 22px;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 12px;
+      letter-spacing: -0.01em;
     }
 
     @media (max-width: 560px) {
@@ -296,9 +320,12 @@
 
       <h2>Work Roles</h2>
       <div class="jobs">
-        <span>DX lead</span>
-        <span>DevOps engineer</span>
+        <span>Team lead</span>
+        <span>Tech lead</span>
+        <span>DevEx</span>
+        <span>DevOps</span>
         <span>iOS developer</span>
+        <span>MacOS developer</span>
       </div>
 
       <h2>Software Author</h2>
